@@ -1,30 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define POSICOES 10
+#define POSICOES 10 //Define quantas posicoes terá o vetor
 int vetor[POSICOES];
 
+//Recebe e valida a ocorrência
 void insereOcorrencia(int posicao) {
-	int numero = 0;
+	int ocorrencias = 0;
 	do{
-		scanf("%d", &numero);
-		if(numero >= 0) {
-			vetor[posicao] = numero;
+		scanf("%d", &ocorrencias);
+		if(ocorrencias >= 0) {
+			vetor[posicao] = ocorrencias;
 		} else {
 			printf("Número inválido!\n%d: ", posicao);
 		}
-	} while (numero < 0);	
+	} while (ocorrencias < 0);	
 }
 
 int main() {
-	int i = 0;
-	int j = 0;
-	int ascii = 178;
+	int i = 0; //for
+	int j = 0; //for
+	int ascii = 178; //Caráctere da tabela ASCII pra representar a ocorrência
+	
 	printf("Quantas vezes ocorreu cada número?\n");
+	
 	for(i=0; i < POSICOES; i++){
 		printf("\n%d: ", i);
 		insereOcorrencia(i);
 	}
-	printf("\n\nHISTOGRAMA DE %d POSICOES\n", POSICOES);
+	
+	printf("\n\nHISTOGRAMA\n");
 	for(i=0; i < POSICOES; i++){
 		printf("%d |", i);
 		for(j=0; j < vetor[i]; j++){
@@ -32,7 +36,6 @@ int main() {
 		};
 		printf("\n");
 	}
-	//printf("\nOcorrências:\n%d - %d - %d - %d - %d - %d - %d - %d - %d - %d", vetor[0], vetor[1], vetor[2], vetor[3], vetor[4], vetor[5], vetor[6], vetor[7], vetor[8], vetor[9]);
-	//printf("\nVetor:\n0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9");
+
 	return 0;	
 }
